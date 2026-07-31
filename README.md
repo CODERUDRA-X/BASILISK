@@ -1,7 +1,6 @@
 <div align="center">
-<img src="https://github.com/CODERUDRA-X/BASILISK/blob/main/logo.png?raw=true" alt="BASILISK Logo" width="200"/>
-  
-# 🐍 PROJECT B.A.S.I.L.I.S.K.
+<img src="https://github.com/CODERUDRA-X/BASILISK/blob/main/logo.png?raw=true" alt="BASILISK Logo" width="500"/>
+
 **Binary Algorithmic System for Intelligent Liquidity & Invisible Shock Kinetics**
 
 *An Elite Autonomous Chaos Trading Terminal by CODERUDRA-X*
