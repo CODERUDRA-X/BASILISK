@@ -56,21 +56,5 @@ The system is divided into a high-integrity Python Deep-State Backend and a Reac
 ### `[TERMINAL FRONTEND]`
 *   `chaos-dashboard/` — A sleek, dark-mode React + Tailwind CSS v3 institutional terminal featuring real-time Recharts visualization of the agent's survivability.
 
----
-
-## 🚀 Deployment & Operations Manual
-
-### Phase 1: Initialize The Deep-State Engine
-Clone the repository and spin up the Python backend environment.
-```bash
-# Navigate to the root directory
-cd Chaos_Project/macro_offline_rl
-
-# Install critical ML and Server dependencies
-pip install torch numpy pandas gymnasium datasets fastapi uvicorn
-
-# Train the Basilisk Agent on Offline Data (Wait for weights to save)
-python -m macro_offline_rl.train_offline
-
-# Initiate the live Data Ingestion & FastAPI Server
-python server.py
+**Built by [CODERUDRA-X](https://github.com/CODERUDRA-X)**
+*Building the future of AI, Vision Systems, and Defense-Tech.*
