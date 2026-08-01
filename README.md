@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://github.com/CODERUDRA-X/BASILISK/blob/main/logo.png?raw=true" alt="BASILISK Logo" width="500"/>
+<img src="https://github.com/CODERUDRA-X/BASILISK/blob/main/media/logo.png?raw=true" alt="BASILISK Logo" width="500"/>
 
 **Binary Algorithmic System for Intelligent Liquidity & Invisible Shock Kinetics**
 
