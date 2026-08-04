@@ -4,10 +4,17 @@ live_ingestion.py
 Connects Project Basilisk to real-world Hugging Face data streams.
 """
 
+import os
 import numpy as np
 import pandas as pd
 from datasets import load_dataset
-from .data_pipeline import STATE_DIM
+from dotenv import load_dotenv
+
+# Fallback for direct execution testing
+try:
+    from .data_pipeline import STATE_DIM
+except ImportError:
+    STATE_DIM = 24
 
 def fetch_live_chaos(hf_token: str = None) -> np.ndarray:
     """Pulls live geopolitical and sentiment data from Hugging Face."""
@@ -38,6 +45,9 @@ def fetch_live_chaos(hf_token: str = None) -> np.ndarray:
         return rng.normal(0.0, 1.0, size=(500, STATE_DIM)).cumsum(axis=0)
 
 if __name__ == "__main__":
-    # Test the live connection locally
-    test_tensor = fetch_live_chaos()
+    # Test the live connection locally with secure token
+    load_dotenv()
+    hf_key = os.getenv("HUGGINGFACE_TOKEN")
+    
+    test_tensor = fetch_live_chaos(hf_token=hf_key)
     print(f"Tensor Shape Locked: {test_tensor.shape}")

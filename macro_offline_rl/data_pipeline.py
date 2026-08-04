@@ -6,11 +6,13 @@ Extracts Geo, Weather, and Port data and compresses them into a 24D latent state
 """
 
 from __future__ import annotations
+import os
 import numpy as np
 import torch
 import pandas as pd
 from dataclasses import dataclass
 from typing import Optional
+from dotenv import load_dotenv
 
 # Neural Latent Dimensions
 GEO_LATENT_DIM = 8
@@ -35,8 +37,12 @@ class MacroChaosDataPipeline:
         # Import the live ingestion module
         from .live_ingestion import fetch_live_chaos
         
-        # Fetch the live stream (Pass your HF Token here if the dataset is private)
-        raw = fetch_live_chaos(hf_token="YOUR_HUGGINGFACE_TOKEN_HERE")
+        # Securely load environment variables from .env file
+        load_dotenv()
+        hf_key = os.getenv("HUGGINGFACE_TOKEN")
+        
+        # Fetch the live stream using the secured token
+        raw = fetch_live_chaos(hf_token=hf_key)
         return raw
     
     def _engineer_features(self, raw: np.ndarray) -> np.ndarray:
@@ -48,7 +54,7 @@ class MacroChaosDataPipeline:
     def build_episode_tensor(self) -> torch.Tensor:
         """
         Returns a (T, 24) float32 tensor representing z_t.
-        The environment will append portfolio data to this later to make it 30D.
+        The env appends portfolio data to this later making it 30D.
         """
         raw = self._fetch_raw()
         features = self._engineer_features(raw)
